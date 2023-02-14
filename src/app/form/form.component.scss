@@ -1,0 +1,58 @@
+h4{
+color:palevioletred;
+margin: auto;
+font-size: large;
+}
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  form{
+   
+    padding: 1em;
+    justify-content: space-evenly;
+}
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color:brown;
+  background-color:pink;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px grey;
+}
+
+.button:hover {background-color: pink}
+
+.button:active {
+  background-color: pink;
+  box-shadow: 0 5px grey;
+  transform: translateY(4px);
+}
+
+.buttonn {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: pink;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px grey;
+}
+
+.buttonn:hover {background-color: pink}
+
+.buttonn:active {
+  background-color: pink;
+  box-shadow: 0 5px grey;
+  transform: translateY(4px);
+}

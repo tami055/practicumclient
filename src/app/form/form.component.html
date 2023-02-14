@@ -1,0 +1,65 @@
+<form (ngSubmit)="save(myform)" #myform="ngForm" class="example-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Fill Firstname</mat-label>
+    <input matInput placeholder="FName" name="שם" [(ngModel)]="userService.user.FName" #f="ngModel" required>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <div class="errors" *ngIf="f.touched&&f.errors&&f.errors['required']">זהו שדה חובה</div>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Fill Lastname</mat-label>
+    <input matInput placeholder="LName" name="שnם" [(ngModel)]="userService.user.LName"  #g="ngModel" required>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <div class="errors" *ngIf="g.touched&&g.errors&&g.errors['required']">זהו שדה חובה</div>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Select hmo</mat-label>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-select [(ngModel)]="userService.user.HMO" name="jhi">
+      <mat-option value="Clalit">Clalit</mat-option>
+      <mat-option value="Maccabi">Maccabi</mat-option>
+      <mat-option value="Meuchedet">Meuchedet</mat-option>
+      <mat-option value="Leumit">Leumit</mat-option>
+    </mat-select> <br />
+  </mat-form-field><br>
+  <mat-form-field appearance="fill">
+    <mat-label>Fill Tz</mat-label>
+    <input matInput placeholder="tz" name="תעודת זהות" [(ngModel)]="userService.user.tz" required minlength="9"
+      maxlength="9" #k="ngModel" title="הזן 9 תווים" >
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <div class="errors" *ngIf="k.touched&&k.errors&&k.errors['required']">זהו שדה חובה</div>
+    <div class="errors" *ngIf="k.invalid && (k.dirty || k.touched)">תעודת זהות יכולה להכיל ספרות בלבד</div> 
+  </mat-form-field><br>
+  <mat-form-field appearance="fill">
+    <mat-label>Select Gander</mat-label>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-select [(ngModel)]="userService.user.min" name="jh">
+      <mat-option ng-value="true" value="true">Male</mat-option>
+      <mat-option ng-value="false" value="false">Female</mat-option>
+    </mat-select><br />
+  </mat-form-field><br>
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" name="bbb" [(ngModel)]="userService.user.BirthDate" min="1900-01-01"
+      max="2023-01-01">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field><br>
+  <h4> MyChildrens</h4>
+  <input type="button" class="button" value="addChild" (click)="addChild()" />
+  <div *ngIf="is">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="childservice.child.Name" required #b="ngModel" name="b" />
+    <label>BirthDate</label>
+    <input type="date" [(ngModel)]="childservice.child.BirthDate" required #c="ngModel" name="c" min="1980-01-01"
+      max="2023-02-02" />
+    <label>ChildTz</label>
+    <input type="text" [(ngModel)]="childservice.child.ChildTz" required #d="ngModel" name="d" />
+    <input mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" (click)="updatechild()"
+      type="button" class="buttonn"/>
+    <mat-icon>plus_one</mat-icon>
+  </div>
+  <input type="submit" class="button" [disabled]="!myform.valid" />
+</form>
